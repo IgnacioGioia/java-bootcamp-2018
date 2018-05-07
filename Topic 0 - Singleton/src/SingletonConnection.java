@@ -1,11 +1,16 @@
 
 
 public class SingletonConnection {
-	   private static Connection connection = null;
-	   public static Connection getConnection(){
-	   if(connection == null) {
-		   connection = new Connection();
+	   private static SingletonConnection singletonConnection = null;
+	   
+	   private SingletonConnection() {
+		   System.out.println("Connected");
 	   }
-	    return connection;
+	   
+	   public static SingletonConnection getConnection(){
+	   if(singletonConnection == null) {
+		   singletonConnection = new SingletonConnection();
+	   }
+	    return singletonConnection;
 	   }
 }
